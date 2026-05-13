@@ -21,7 +21,7 @@ Fetches a list of all available workspaces (returns just the `id` and `workspace
 Retrieves the specific configuration details for a given workspace. Returns data like the `primary_label`, `status_label`, `status_options`, and the `current_stage`.
 
 ### `POST /api/admin/workspace-config`
-Accepts a JSON payload to rapidly scaffold and create a brand new workspace alongside its custom configuration settings.
+Accepts a JSON payload to rapidly scaffold and create a brand new workspace alongside its custom configuration settings. This is utilized by the dashboard's internal Config Creator module, but can also be directly interacted with via simple raw API calls by sending a valid JSON payload from any client or script.
 
 ### `PUT /api/dashboard-config/:workspace_id/status`
 Updates the `current_stage` of a specific workspace configuration. It ensures that the incoming stage matches one of the valid `status_options` previously defined.
