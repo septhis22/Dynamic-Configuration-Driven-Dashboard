@@ -34,7 +34,7 @@ export default function Dashboard() {
 
   const fetchWorkspaces = async () => {
     try {
-      const res = await fetch("http://localhost:3000/api/workspaces");
+      const res = await fetch("https://dynamic-configuration-driven-dashboard.onrender.com/api/workspaces");
       if (!res.ok) throw new Error("Failed to fetch workspaces");
       const data: BasicWorkspace[] = await res.json();
       setAvailableWorkspaces(data);
@@ -61,7 +61,7 @@ export default function Dashboard() {
       setError("");
       setWorkspace(null); // Clear previous data
       try {
-        const res = await fetch(`http://localhost:3000/api/dashboard-config/${activeWsId}`);
+        const res = await fetch(`https://dynamic-configuration-driven-dashboard.onrender.com/api/dashboard-config/${activeWsId}`);
         if (!res.ok) {
           const errorData = await res.json();
           throw new Error(errorData.error || "Failed to fetch configuration");
@@ -93,7 +93,7 @@ export default function Dashboard() {
         throw new Error("Invalid JSON format");
       }
 
-      const res = await fetch("http://localhost:3000/api/admin/workspace-config", {
+      const res = await fetch("https://dynamic-configuration-driven-dashboard.onrender.com/api/admin/workspace-config", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
@@ -118,7 +118,7 @@ export default function Dashboard() {
     if (!workspace || !selectedStage) return;
     setUpdatingStage(true);
     try {
-      const res = await fetch(`http://localhost:3000/api/dashboard-config/${workspace.workspace_id}/status`, {
+      const res = await fetch(`https://dynamic-configuration-driven-dashboard.onrender.com/api/dashboard-config/${workspace.workspace_id}/status`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ current_stage: selectedStage })
