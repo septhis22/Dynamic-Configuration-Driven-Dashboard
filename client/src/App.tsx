@@ -6,8 +6,8 @@ export const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/work2" element={<Assignmet2 />} />
+        <Route path="/work2" element={<Dashboard />} />
+        <Route path="/" element={<Assignmet2 />} />
       </Routes>
     </BrowserRouter>
   )
